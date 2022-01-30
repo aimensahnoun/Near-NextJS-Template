@@ -7,7 +7,7 @@ import {
 
 
 
-export const CONTRACT_ID = "dev-1643565887500-66864204766856";
+export const CONTRACT_ID = "dev-1643583533233-86904103016460";
 
 export const initNear = () => {
   //Testnet config

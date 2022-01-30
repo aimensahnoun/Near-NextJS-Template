@@ -6,6 +6,8 @@
     "build": "next build",
     "build-contract": "asb --target debug",
     "deploy-contract": "yarn build-contract && near dev-deploy ./build/debug/contract.wasm",
+    "clean-contract" : "rm -rf ./build && rm -rf ./neardev",
+    "run-contract"  : "./contract/scripts/run.sh",
     "start": "next start",
     "lint": "next lint"
   },
