@@ -1,7 +1,21 @@
 //Next JS imports
 import Head from "next/head";
 
+//React import
+import { useState, useEffect } from "react";
+
+//Near imports
+import { signIn, signOut, wallet } from "../near/near-setup";
+
 export default function Home() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (wallet.getAccountId()) {
+      setUser(wallet.getAccountId());
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -11,10 +25,32 @@ export default function Home() {
       </Head>
 
       <div className="main-div">
-        <span>This is a Near Api template for Next JS</span>
-        <span>
-          Do NOT forget to change the contract account in the near-setup.js file
-        </span>
+        {!user ? (
+          <>
+            <h4>This is a Near Api template for Next JS</h4>
+            <button
+              className="button"
+              onClick={() => {
+                signIn();
+              }}
+            >
+              Sign In
+            </button>
+          </>
+        ) : (
+          <>
+            <h4>Welcome {user}</h4>
+            <button
+              className="button"
+              onClick={() => {
+                signOut();
+                setUser(null);
+              }}
+            >
+              Sign out
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
