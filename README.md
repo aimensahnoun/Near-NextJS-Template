@@ -4,7 +4,7 @@
 This is a Next JS app with Near Api bootstrapped using create-near-next
 
 # Getting Started
-In oder to run the development server run:  
+In order to run the development server run:  
 
     yarn dev
     # or
